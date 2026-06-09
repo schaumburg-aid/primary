@@ -21,7 +21,72 @@
         Welcome to Schaumburg Aid!
     </h1>
     <br>
-    <p> This website is currently under construction. Please contact staff for more information.</p>
+    <p> This website is currently under construction. Please contact staff for more information. The options below are used for functions, you can use them in the F12 menu as well.</p>
+    <br>
+    <button onclick="accessDenied()">accessDenied()</button>
+    <div style="margin-top:24px">
+        <h3>Account actions</h3>
+        <div>
+            <input id="ca-email" type="email" placeholder="email">
+            <input id="ca-password" type="password" placeholder="password">
+            <input id="ca-username" type="text" placeholder="username">
+            <button onclick="createAccount(document.getElementById('ca-email').value, document.getElementById('ca-password').value, document.getElementById('ca-username').value)">createAccount()</button>
+        </div>
+        <div style="margin-top:8px">
+            <input id="si-email" type="email" placeholder="email">
+            <input id="si-password" type="password" placeholder="password">
+            <button onclick="signIn(document.getElementById('si-email').value, document.getElementById('si-password').value)">signIn()</button>
+        </div>
+        <div style="margin-top:8px">
+            <button onclick="UID()">UID()</button>
+        </div>
+        <div style="margin-top:8px">
+            <input id="ad-identifier" type="text" placeholder="username or email">
+            <button onclick="accountdata(document.getElementById('ad-identifier').value)">accountdata()</button>
+        </div>
+        <div style="margin-top:8px">
+            <input id="dis-email" type="email" placeholder="email to disable">
+            <button onclick="disableaccount(document.getElementById('dis-email').value)">disableaccount()</button>
+        </div>
+        <div style="margin-top:8px">
+            <input id="del-email" type="email" placeholder="email to delete">
+            <button onclick="deleteaccount(document.getElementById('del-email').value)">deleteaccount()</button>
+        </div>
+        <div style="margin-top:16px">
+            <h4>Role management</h4>
+            <div>
+                <input id="sr-name" type="text" placeholder="role name (eg. moderator)">
+                <input id="sr-userid" type="text" placeholder="user id">
+                <button onclick="setrole(document.getElementById('sr-name').value, document.getElementById('sr-userid').value)">setrole()</button>
+            </div>
+            <div style="margin-top:8px">
+                <input id="sl-level" type="number" placeholder="level number">
+                <input id="sl-userid" type="text" placeholder="user id">
+                <button onclick="setlevel(document.getElementById('sl-level').value, document.getElementById('sl-userid').value)">setlevel()</button>
+            </div>
+        </div>
+        <div style="margin-top:16px">
+            <h4>Session actions</h4>
+            <div>
+                <button onclick="createSessionForCurrentUser()">createSessionForCurrentUser()</button>
+                <input id="cs-uid" type="text" placeholder="uid">
+                <button onclick="createSession(document.getElementById('cs-uid').value)">createSession(uid)</button>
+            </div>
+            <div style="margin-top:8px">
+                <button onclick="endSession()">endSession()</button>
+                <button onclick="getSession()">getSession()</button>
+                <button onclick="isAuthenticated()">isAuthenticated()</button>
+            </div>
+            <div style="margin-top:8px">
+                <input id="action-name" type="text" placeholder="action name">
+                <input id="action-payload" type="text" placeholder="payload (string)">
+                <button onclick="performAction(document.getElementById('action-name').value, document.getElementById('action-payload').value)">performAction()</button>
+            </div>
+            <div style="margin-top:8px">
+                <button onclick="console.log(getActions())">getActions()</button>
+            </div>
+        </div>
+    </div>
 </body>
 <!-- Frontend Scripts -->
 <!-- Debug Scripts-->
@@ -42,6 +107,8 @@
 <!-- Prevent Scripts -->
  <script type="module" src="scripts/backend/security/prevention/prevention.module.js"></script>
  <!-- Data Scripts -->
-  <script type="module" src="scripts/backend/requests/data/data.module.js"></script>
+ <script type="module" src="scripts/backend/requests/src/firebasesdk.js"></script>
+ <script type="module" src="scripts/backend/requests/data/data.module.js"></script>
+ <script type="module" src="scripts/backend/requests/global/global.module.js"></script>
 </html>
 <!-- code written by adhyayan hazra, don't steal pls-->
